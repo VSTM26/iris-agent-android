@@ -7,6 +7,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 import ChatScreen from './src/screens/ChatScreen';
 import DevicesScreen from './src/screens/DevicesScreen';
 import SettingsScreen from './src/screens/SettingsScreen';
+import AgentsScreen from './src/screens/AgentsScreen';
 import { MessagingService } from './src/services/MessagingService';
 import { useDeviceStore } from './src/store/deviceStore';
 
@@ -16,6 +17,7 @@ const TabBarIcon = ({ name, color, size }: any) => {
   const icons: Record<string, string> = {
     Chat: '💬',
     Devices: '📱',
+    Agents: '🤖',
     Settings: '⚙️',
   };
   return <Text style={{ fontSize: size, color }}>{icons[name]}</Text>;
@@ -125,6 +127,17 @@ export default function App() {
             tabBarLabel: 'Devices',
             tabBarIcon: ({ color }) => (
               <TabBarIcon name="Devices" color={color} size={24} />
+            ),
+          }}
+        />
+        <Tab.Screen
+          name="Agents"
+          component={AgentsScreen}
+          options={{
+            title: 'Agents',
+            tabBarLabel: 'Agents',
+            tabBarIcon: ({ color }) => (
+              <TabBarIcon name="Agents" color={color} size={24} />
             ),
           }}
         />
